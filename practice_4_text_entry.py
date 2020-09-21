@@ -2,23 +2,26 @@ from tkinter import*
 
 root = Tk()
 root.title("mine")
+root.geometry("640x480")
 
-label1 = Label(root, text = "안녕하세요")
-label1.pack()
+txt = Text(root, width = 30, height = 5)
+txt.pack()
 
-photo = PhotoImage(file = "img.png")
-label2 = Label(root, image = photo)
-label2.pack()
+txt.insert(END, "imput")
 
-def change():
-    label1.config(text = "ok")
+e = Entry(root, width = 30)
+e.pack()
+e.insert(0, "one line")
 
-    global photo2
-    photo2 = PhotoImage(file = "img2.png")
-    label2.config(image = photo2)
-    
+def btncmd():
+    print(txt.get("1.0", END))# 1번 라인에서 0번 위치부터 받아온다 
+    print(e.get())
 
-btn = Button(root, text = "click", command = change)
+    # 내용 제거
+    txt.delete("1.0", END)
+    e.delete(0, END)
+
+btn = Button(root, text = "click", command = btncmd)
 btn.pack()
 
 root.mainloop()
