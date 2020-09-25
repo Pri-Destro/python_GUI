@@ -45,3 +45,5 @@ txt.pack(side = "left", fil = "both", expand = True)
 scrollbar.config(command = txt.yview)
 root.config(menu = menu)
 root.mainloop()
+
+# add anooter
