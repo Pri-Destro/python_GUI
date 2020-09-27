@@ -42,10 +42,18 @@ def merge_image():
     #making 1 flim
     result_img = Image.new("RGB", (max_width, total_height), (255, 255, 255))
     y_offset = 0
-    for img in images:
+    # for img in images:
+    #     result_img.paste(img, (0, y_offset))
+    #     y_offset += img.size[1]
+
+    for idx, img in enumerate(images):
         result_img.paste(img, (0, y_offset))
         y_offset += img.size[1]
 
+        progress = (idx + 1) / len(images) * 100 # progress persent
+        p_var.set(progress)
+        progress_bar.update()
+        
     dest_path = os.path.join(txt_dest_path.get(), "my_photo.jpg")
     result_img.save(dest_path)
     msgbox.showinfo("infor","saving complete")
