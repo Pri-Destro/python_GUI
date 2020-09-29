@@ -14,3 +14,4 @@ keyboard.wait("esc")
 
 # +name setting
 # +mouse grap
+# +save path
