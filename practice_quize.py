@@ -1,12 +1,11 @@
-#간단한 메모장 따라하기
 import os
-from tkinter import*
+import tkinter as tk
 
-root = Tk()
+root = tk.Tk()
 root.title("제목 없음 - Windows 메모장")
 root.geometry("640x480") # 가로 * 세로
 
-menu = Menu(root)
+menu = tk.Menu(root)
 
 filename = "mynote.txt"
 
@@ -21,7 +20,7 @@ def save_new_file():
         file.write(txt.get("1.0", END))
 
 #file 메뉴
-menu_file = Menu(menu, tearoff = 0)
+menu_file = tk.Menu(menu, tearoff = 0)
 menu_file.add_command(label = "열기", command = open_new_file)
 menu_file.add_command(label = "저장", command = save_new_file)
 menu_file.add_separator()
@@ -35,11 +34,11 @@ menu.add_cascade(label = "보기")
 menu.add_cascade(label = "도움말")
 
 #스크롤바
-scrollbar = Scrollbar(root)
+scrollbar = tk.Scrollbar(root)
 scrollbar.pack(side = "right", fill = "y")
 
 #메모
-txt = Text(root, yscrollcommand = scrollbar.set)
+txt = tk.Text(root, yscrollcommand = scrollbar.set)
 txt.pack(side = "left", fil = "both", expand = True)
 
 scrollbar.config(command = txt.yview)
